@@ -4,7 +4,7 @@ public class SafeInput {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        // Testing the getNonZeroLenString method
+
         String result = getNonZeroLenString(in, "Enter a non-empty string");
         System.out.println("You entered: " + result);
     }
@@ -15,9 +15,9 @@ public class SafeInput {
      * @return a String response that is not zero length
      */
     public static String getNonZeroLenString(Scanner pipe, String prompt) {
-        String retString = ""; // Set this to zero length. Loop runs until it isn't
+        String retString = "";
         do {
-            System.out.print("\n" + prompt + ": "); // show prompt add space
+            System.out.print("\n" + prompt + ": "); //
             retString = pipe.nextLine();
         } while (retString.length() == 0);
 
@@ -33,9 +33,9 @@ public class SafeInput {
                 valid = true;
             } else {
                 System.out.println("Invalid input. Please enter an integer.");
-                pipe.next(); // Clear the invalid input
+                pipe.next();
             }
-            pipe.nextLine(); // Clear the newline character
+            pipe.nextLine();
         } while (!valid);
 
         return retValue;
@@ -50,9 +50,9 @@ public class SafeInput {
                 valid = true;
             } else {
                 System.out.println("Invalid input. Please enter a double.");
-                pipe.next(); // Clear the invalid input
+                pipe.next();
             }
-            pipe.nextLine(); // Clear the newline character
+            pipe.nextLine();
         } while (!valid);
 
         return retValue;
@@ -71,9 +71,9 @@ public class SafeInput {
                 }
             } else {
                 System.out.println("Invalid input. Please enter an integer.");
-                pipe.next(); // Clear the invalid input
+                pipe.next();
             }
-            pipe.nextLine(); // Clear the newline character
+            pipe.nextLine();
         } while (!valid);
 
         return retValue;
@@ -92,9 +92,9 @@ public class SafeInput {
                 }
             } else {
                 System.out.println("Invalid input. Please enter a double.");
-                pipe.next(); // Clear the invalid input
+                pipe.next();
             }
-            pipe.nextLine(); // Clear the newline character
+            pipe.nextLine();
         } while (!valid);
 
         return retValue;

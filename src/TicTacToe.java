@@ -7,14 +7,49 @@ public class TicTacToe {
     private static String[][] board = new String[ROW][COL];
     private static Scanner in = new Scanner(System.in);
 
+    //Pseudocode
+    // class TicTacToe
+    //Main()
+    //String Player ="x"
+    // clearBoard();
+    //input "make your move"
+    //for (int 1=0; i < 9;i++)
+    // if (i=1 || 3 || 5 || 7 || 9)
+    //    playerStatus = "x"
+    // else
+    //    playerStatus = "o"
+    //	do {
+    //	    row = SafeInput.getRangedInt(in, "Enter your row coordinate", 3, 1) - 1;
+    //		col = SafeInput.getRangedInt(in, "Enter your column coordinate", 3, 1) - 1;
+    //	}
+    //	while(!isValidMove(row, col));
+    //		board[row][col] = currentPlayer
+    //		numPlays += 1
+    //		if (numPlays > 5)
+    //			{
+    //				if (isWin)
+    //				{
+    //					output "currentPlayer + " wins!"
+    //				}
+    //			else if (numPlays > 7)
+    //			{
+    //				if (isTie)
+    //				{
+    //					output "It's a tie!"}
+    //					}
+    //				}
+    //			}
+
+
     public static void main(String[] args) {
         String playerString = " X ";
         String playerMove = "X"; // Starting player
-        int row, col; // Coordinates for player move
+        int row;
+        int col;
         int plays; // Counter for # of plays
 
         do {
-            clearBoard(); // Initialize the board
+            clearBoard();
             playerString = " X ";
             playerMove = "X"; // X always first
             plays = 0;
@@ -54,7 +89,7 @@ public class TicTacToe {
         } while (SafeInput.getYNConfirm(in, "Play Again?"));
     }
 
-    // Display the board
+    // Display board here
     private static void display() {
         String displayBoard = "";
         for (int r = 0; r < ROW; r++) {
@@ -72,7 +107,7 @@ public class TicTacToe {
         System.out.println(displayBoard);
     }
 
-    // Clear the board
+    // clear  board
     private static void clearBoard() {
         for (int r = 0; r < ROW; r++) {
             for (int c = 0; c < COL; c++) {
@@ -81,12 +116,12 @@ public class TicTacToe {
         }
     }
 
-    // Check if the move is valid
+    // check if the move is valid
     private static boolean isValidMove(int row, int col) {
         return (board[row][col].equals("   "));
     }
 
-    // Check for row win
+    // row win?
     private static boolean isRowWin(String player) {
         for (int row = 0; row < ROW; row++) {
             if (board[row][0].equals(player) && board[row][1].equals(player) && board[row][2].equals(player)) {
@@ -96,7 +131,7 @@ public class TicTacToe {
         return false;
     }
 
-    // Check for column win
+    //  column win?
     private static boolean isColWin(String player) {
         for (int col = 0; col < COL; col++) {
             if (board[0][col].equals(player) && board[1][col].equals(player) && board[2][col].equals(player)) {
@@ -106,13 +141,13 @@ public class TicTacToe {
         return false;
     }
 
-    // Check for diagonal win
+    //diagonal win?
     private static boolean isDiagonalWin(String player) {
         return (board[0][2].equals(player) && board[1][1].equals(player) && board[2][0].equals(player)) ||
                 (board[0][0].equals(player) && board[1][1].equals(player) && board[2][2].equals(player));
     }
 
-    // Check for any win
+    // Check  any win
     private static boolean isWin(String player) {
         return isColWin(player) || isRowWin(player) || isDiagonalWin(player);
     }
@@ -122,7 +157,7 @@ public class TicTacToe {
         for (int r = 0; r < ROW; r++) {
             for (int c = 0; c < COL; c++) {
                 if (board[r][c].equals("   ")) {
-                    return false; // If there's an empty spot, it's not a tie
+                    return false; //  empty spot= not a tie
                 }
             }
         }
